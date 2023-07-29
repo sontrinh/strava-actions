@@ -1,0 +1,33 @@
+name: Kudo_Mobile_CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 * * * *"
+
+jobs:
+  mobile:
+    name: Kudo Mobile
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: sontrinh/strava-auto
+          token: ${{ secrets.PAT }}
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: "npm"
+
+      - run: npm ci
+      - run: node auto-kudo.js --mobile --max-act=15
+        env:
+          USERNAME: ${{ secrets.STRAVA_USERNAME }}
+          PASSWORD: ${{ secrets.STRAVA_PASSWORD }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          GH_PAT: ${{ secrets.PAT }}
+          GIST_ID: ${{ secrets.GIST_ID }}
