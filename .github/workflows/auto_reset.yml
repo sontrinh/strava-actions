@@ -9,6 +9,7 @@ jobs:
   build:
     name: Reset kudo workflows
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - uses: actions/checkout@v3
       - run: gh workflow enable "kudo_mobile.yml"
