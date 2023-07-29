@@ -1,0 +1,31 @@
+name: Get_Followers_CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 */2 * *"
+
+jobs:
+  get:
+    name: Get followers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: sontrinh/strava-auto
+          token: ${{ secrets.PAT }}
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: "npm"
+
+      - run: npm ci
+      - run: node auto-follower.js
+        env:
+          USERNAME: ${{ secrets.STRAVA_USERNAME }}
+          PASSWORD: ${{ secrets.STRAVA_PASSWORD }}
+          GH_TOKEN: ${{ github.token }}
+          GH_PAT: ${{ secrets.PAT }}
+          GIST_ID: ${{ secrets.GIST_ID }}
