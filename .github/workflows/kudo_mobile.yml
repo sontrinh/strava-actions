@@ -23,7 +23,7 @@ jobs:
           cache: "npm"
 
       - run: npm ci
-      - run: node auto-kudo.js --mobile --max-act=15
+      - run: node auto-kudo.js --mobile --max-act=20
         env:
           USERNAME: ${{ secrets.STRAVA_USERNAME }}
           PASSWORD: ${{ secrets.STRAVA_PASSWORD }}
