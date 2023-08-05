@@ -3,7 +3,7 @@ name: Kudo_Mobile_CI
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/12 * * * *"
+    - cron: "*/14 * * * *"
 
 jobs:
   mobile:
