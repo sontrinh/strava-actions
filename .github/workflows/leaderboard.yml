@@ -1,4 +1,4 @@
-name: Kudo_Mobile_CI
+name: Check_Leaderboard_CI
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
           cache: "npm"
 
       - run: npm ci
-      - run: node autochecker.js
+      - run: node auto-leaderboard.js
         env:
           USERNAME: ${{ secrets.STRAVA_USERNAME }}
           PASSWORD: ${{ secrets.STRAVA_PASSWORD }}
