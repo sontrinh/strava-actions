@@ -1,11 +1,11 @@
-name: Check_Leaderboard_CI
+name: Check_Activity_CI
 
 on:
   workflow_dispatch:
 
 jobs:
   mobile:
-    name: Check leaderboard
+    name: Check activity
     runs-on: ubuntu-latest
 
     steps:
