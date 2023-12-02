@@ -36,8 +36,8 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
-      - run: pip install -r requirements.txt
-      - run: python fbchat.py
+      - run: pip install -r messenger/requirements.txt
+      - run: python messenger/main.py
         env:
           FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
           FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
