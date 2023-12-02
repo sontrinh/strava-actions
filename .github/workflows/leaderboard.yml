@@ -5,7 +5,7 @@ on:
 
 jobs:
   mobile:
-    name: Kudo Mobile
+    name: Check leaderboard
     runs-on: ubuntu-latest
 
     steps:
