@@ -2,6 +2,8 @@ name: Check_Activity_CI
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"
 
 jobs:
   mobile:
