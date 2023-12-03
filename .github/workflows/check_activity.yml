@@ -46,6 +46,5 @@ jobs:
           FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
           FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
           FACEBOOK_THREADID: ${{ secrets.FACEBOOK_THREADID }}
-          FACEBOOK_COOKIES: ${{ secrets.FACEBOOK_COOKIES }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
