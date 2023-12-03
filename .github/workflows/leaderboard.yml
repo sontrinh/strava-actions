@@ -37,8 +37,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_PAT: ${{ secrets.PAT }}
           GIST_ID: ${{ secrets.GIST_ID }}
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
