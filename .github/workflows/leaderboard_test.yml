@@ -1,0 +1,47 @@
+name: Check_Leaderboard_CI_TEST
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2,14 * * *"
+
+jobs:
+  mobile:
+    name: Check leaderboard (Test)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: sontrinh/strava-auto
+          token: ${{ secrets.PAT }}
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: "npm"
+      - run: npm ci
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - run: pip install -r messenger/requirements.txt
+
+      - run: node auto-leaderboard.js
+        env:
+          USERNAME: ${{ secrets.STRAVA_USERNAME }}
+          PASSWORD: ${{ secrets.STRAVA_PASSWORD }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          GH_PAT: ${{ secrets.PAT }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - run: python messenger/main.py
+        env:
+          FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
+          FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
+          FACEBOOK_THREADID: ${{ secrets.FACEBOOK_THREADID_TEST }}
+          FACEBOOK_COOKIES: ${{ secrets.FACEBOOK_COOKIES }}
