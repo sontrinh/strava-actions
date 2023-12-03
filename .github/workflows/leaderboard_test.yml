@@ -2,8 +2,6 @@ name: Check_Leaderboard_CI_TEST
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 2,14 * * *"
 
 jobs:
   mobile:
