@@ -40,10 +40,10 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
-      - run: python messenger/main.py
-        env:
-          FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
-          FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
-          FACEBOOK_THREADID: ${{ secrets.FACEBOOK_THREADID }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+#      - run: python messenger/main.py
+#        env:
+#          FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
+#          FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
+#          FACEBOOK_THREADID: ${{ secrets.FACEBOOK_THREADID }}
+#          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+#          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
