@@ -40,6 +40,11 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: leaderboard
+          path: message.txt
+
 #      - run: python messenger/main.py
 #        env:
 #          FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
