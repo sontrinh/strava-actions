@@ -2,9 +2,8 @@ name: Check_Club_CI
 
 on:
   workflow_dispatch:
-  #schedule:
-    #- cron: "0 14 * * *"
-    #- cron: "30 16 * * SUN"
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   mobile:
