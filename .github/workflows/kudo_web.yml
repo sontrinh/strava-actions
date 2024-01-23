@@ -3,7 +3,7 @@ name: Kudo_Web_CI
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/18 * * * *"
 
 jobs:
   web:
