@@ -22,11 +22,11 @@ jobs:
           node-version: 20.x
           cache: "npm"
       - run: npm ci
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-          cache: 'pip'
-      - run: pip install -r messenger/requirements.txt
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.10'
+      #     cache: 'pip'
+      # - run: pip install -r messenger/requirements.txt
       
       - run: node auto-newactivity.js
         env:
@@ -39,10 +39,10 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
-      - run: python messenger/main.py
-        env:
-          FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
-          FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
-          FACEBOOK_THREADID: ${{ secrets.FACEBOOK_THREADID }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+      # - run: python messenger/main.py
+      #   env:
+      #     FACEBOOK_USERNAME: ${{ secrets.FACEBOOK_USERNAME }}
+      #     FACEBOOK_PASSWORD: ${{ secrets.FACEBOOK_PASSWORD }}
+      #     FACEBOOK_THREADID: ${{ secrets.FACEBOOK_THREADID }}
+      #     SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      #     SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
